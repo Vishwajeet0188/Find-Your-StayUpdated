@@ -16,7 +16,7 @@ A full-stack hotel booking application that enables users to browse properties, 
 - ✔ Cloudinary Image Uploads
 - ✔ Session-based Login using MongoStore
 - ✔ Responsive EJS Frontend
-- ✔ Ready for Cloud Deployment (Vercel / Render / Railway)
+- ✔ Ready for Cloud Deployment (Vercel)
 
 ---
 
