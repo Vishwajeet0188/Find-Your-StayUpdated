@@ -1,10 +1,10 @@
 // MUST BE FIRST!
-// if (process.env.NODE_ENV != "production") {
-//   require("dotenv").config();
-// }
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
 
 // while doing production use this  : 
-require("dotenv").config();
+// require("dotenv").config();
 
 
 const express = require("express");

@@ -5,7 +5,20 @@ const Booking = require("../models/booking");
 const Listing = require("../models/listing");
 const User = require("../models/user");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+// const upload = multer({ dest: "uploads/" });  for local not on cloud
+
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../cloudConfugring");
+
+const storage = new CloudinaryStorage({
+    cloudinary,
+    params: {
+        folder: "ProfilePictures",
+        allowed_formats: ["jpg", "jpeg", "png"]
+    },
+});
+
+const upload = multer({ storage });
 
 
 // GET /profile
@@ -46,7 +59,8 @@ router.post("/edit", isLoggedIn, upload.single("profilePicture"), async (req, re
         };
 
         if (req.file) {
-            updateData.profilePicture = `/uploads/${req.file.filename}`;
+            // updateData.profilePicture = `/uploads/${req.file.filename}`;
+            updateData.profilePicture = req.file.path; // Cloudinary returns URL
         }
 
         const updatedUser = await User.findByIdAndUpdate(req.user._id, updateData, { new: true });
