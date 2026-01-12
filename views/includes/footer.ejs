@@ -1,583 +1,473 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <footer class="footer-section">
-  <!-- Newsletter Section -->
-  <div class="newsletter-section">
-    <div class="container">
-      <div class="newsletter-content">
-        <h3>Get the latest travel inspiration</h3>
-        <p>Subscribe to our newsletter for exclusive deals and destination guides</p>
-        <form class="newsletter-form">
-          <div class="input-group">
-            <input type="email" placeholder="Your email address" required>
-            <button type="submit" class="btn-subscribe">
-              <i class="fa-solid fa-paper-plane"></i>
-              Subscribe
-            </button>
-          </div>
-          <p class="newsletter-note">By subscribing, you agree to our Privacy Policy</p>
-        </form>
-      </div>
-    </div>
-  </div>
 
-  <!-- Main Footer -->
-  <div class="main-footer">
-    <div class="container">
-      <div class="footer-grid">
-        
-        <!-- Brand Column -->
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <i class="fa-solid fa-earth-americas"></i>
-            <span>FindYourStay</span>
-          </div>
-          <p class="brand-description">
-            Your gateway to extraordinary stays worldwide. Discover luxury accommodations, 
-            unique experiences, and create unforgettable memories.
-          </p>
-          <div class="social-icons">
-            <a href="#" class="social-icon facebook" aria-label="Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a href="#" class="social-icon instagram" aria-label="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="#" class="social-icon twitter" aria-label="Twitter">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="social-icon pinterest" aria-label="Pinterest">
-              <i class="fa-brands fa-pinterest"></i>
-            </a>
-          </div>
-        </div>
+    <!-- Newsletter -->
+    <div class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h3>Get the latest travel inspiration</h3>
+                <p>Subscribe to our newsletter for exclusive deals and destination guides</p>
 
-        <!-- Quick Links -->
-        <div class="footer-links">
-          <h4>For Travelers</h4>
-          <ul>
-            <li><a href="/listings">Browse Hotels</a></li>
-            <li><a href="#">Popular Destinations</a></li>
-            <li><a href="#">Travel Guides</a></li>
-            <li><a href="#">Special Offers</a></li>
-            <li><a href="#">Gift Cards</a></li>
-            <li><a href="#">Business Travel</a></li>
-          </ul>
-        </div>
-
-        <!-- For Hotels -->
-        <div class="footer-links">
-          <h4>For Hotels</h4>
-          <ul>
-            <li><a href="/listings/new">List Your Property</a></li>
-            <li><a href="#">Business Solutions</a></li>
-            <li><a href="#">Resource Center</a></li>
-            <li><a href="#">Hotel Insights</a></li>
-            <li><a href="#">Partnerships</a></li>
-          </ul>
-        </div>
-
-        <!-- Support -->
-        <div class="footer-links">
-          <h4>Support</h4>
-          <ul>
-            <li><a href="/help">Help Center</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-            <li><a href="/safety">Safety Information</a></li>
-            <li><a href="/cancellation">Cancellation Options</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="footer-contact">
-          <h4>Contact Us</h4>
-          <div class="contact-info">
-            <div class="contact-item">
-              <i class="fa-solid fa-envelope"></i>
-              <span>support@findyourstay.com</span>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn-subscribe">
+                            <i class="fa-solid fa-paper-plane"></i> Subscribe
+                        </button>
+                    </div>
+                    <p class="newsletter-note">By subscribing, you agree to our Privacy Policy</p>
+                </form>
             </div>
-            <div class="contact-item">
-              <i class="fa-solid fa-phone"></i>
-              <span>975811126</span>
-            </div>
-            <div class="contact-item">
-              <i class="fa-solid fa-location-dot"></i>
-              <span>Banglore, India</span>
-            </div>
-          </div>
-          
-          </div>
         </div>
-
-      </div>
     </div>
-  </div>
 
-  <!-- Footer Bottom -->
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="footer-bottom-content">
-        <div class="copyright">
-          © 2025 <span class="highlight">FindYourStay</span>. All rights reserved.
+    <!-- Main Footer -->
+    <div class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Brand -->
+                <div class="footer-col footer-brand">
+                    <div class="footer-logo">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span>FindYourStay</span>
+                    </div>
+                    <p class="brand-description">
+                        Your gateway to extraordinary stays worldwide. Discover luxury accommodations,
+                        unique experiences, and create unforgettable memories.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <!-- Travelers -->
+                <div class="footer-col">
+                    <h4>For Travelers</h4>
+                    <ul>
+                        <li><a href="/listings" class="footer-link">Browse Hotels</a></li>
+                        <li><a href="#" onclick="comingSoon()" class="footer-link">Popular Destinations</a></li>
+                        <li><a href="#" onclick="comingSoon()" class="footer-link">Travel Guides</a></li>
+                        <li><a href="#" onclick="comingSoon()" class="footer-link">Special Offers</a></li>
+                        <li><a href="#" onclick="comingSoon()" class="footer-link">Gift Cards</a></li>
+                        <li><a href="#" onclick="comingSoon()" class="footer-link">Business Travel</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hotels -->
+                <div class="footer-col">
+                    <h4>For Hotels</h4>
+                    <ul>
+                        <li><a href="/listings/new" class="footer-link">List Your Property</a></li>
+                        <li><a href="#" onclick="comingSoon()" class="footer-link">Business Solutions</a></li>
+                        <li><a href="#" onclick="comingSoon()" class="footer-link">Resource Center</a></li>
+                        <li><a href="#" onclick="comingSoon()" class="footer-link">Hotel Insights</a></li>
+                        <li><a href="#" onclick="comingSoon()" class="footer-link">Partnerships</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-col footer-support">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/GetInTouch" class="footer-link">Help Center</a></li>
+                        <li><a href="/GetInTouch" class="footer-link">Contact Us</a></li>
+                        <li><a href="/GetInTouch" class="footer-link">Safety Information</a></li>
+                        <li><a href="/GetInTouch" class="footer-link">Cancellation Options</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-col footer-contact">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li class="contact-item"><i class="fa-solid fa-envelope"></i> support@findyourstay.com</li>
+                        <li class="contact-item"><i class="fa-solid fa-phone"></i> 975811126</li>
+                        <li class="contact-item"><i class="fa-solid fa-location-dot"></i> Bangalore, India</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
-        <div class="legal-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/cookies">Cookie Policy</a>
-          <a href="/sitemap">Sitemap</a>
-          <a href="/accessibility">Accessibility</a>
-        </div>
-        <div class="payment-methods">
-          <i class="fa-brands fa-cc-visa" title="Visa"></i>
-          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
-          <i class="fa-brands fa-cc-amex" title="American Express"></i>
-          <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
-          <i class="fa-brands fa-apple-pay" title="Apple Pay"></i>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+        <div class="container footer-bottom-content">
+            <div class="copyright">
+                © 2025 <span class="highlight">FindYourStay</span>. All rights reserved.
+            </div>
+
+            <div class="legal-links">
+                <a href="#" onclick="comingSoon()"class="legal-link">Privacy Policy</a>
+                <a href="#" onclick="comingSoon()" class="legal-link">Terms</a>
+                <a href="#" onclick="comingSoon()"class="legal-link">Cookies</a>
+                <a href="#" onclick="comingSoon()" class="legal-link">Sitemap</a>
+                <a href="#" onclick="comingSoon()" class="legal-link">Accessibility</a>
+            </div>
+        </div>
+    </div>
+
 </footer>
 
+
 <style>
-/* Footer Variables */
-:root {
-  --primary: #667eea;
-  --secondary: #764ba2;
-  --accent: #f093fb;
-  --dark: #1a1a1a;
-  --light: #f8f9fa;
-  --gray: #666;
-  --light-gray: #e9ecef;
-}
 
-/* Footer Section */
 .footer-section {
-  background: var(--dark);
-  color: white;
-  margin-top: auto;
- 
+    background:#111;
+    color:white;
+    width:100%;
+    font-family:Segoe UI, sans-serif;
+}
+.container {
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
 }
 
-/* Newsletter Section */
+/* Newsletter */
 .newsletter-section {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
-  padding: 60px 0;
-  position: relative;
-  overflow: hidden;
+    padding:60px 0;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    text-align:center;
 }
-
-.newsletter-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-  background-size: cover;
-  opacity: 0.1;
-}
-
-.newsletter-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.newsletter-content h3 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-  font-family: 'Playfair Display', serif;
-}
-
-.newsletter-content p {
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-}
-
-.newsletter-form {
-  margin-bottom: 20px;
-}
-
 .input-group {
-  display: flex;
-  gap: 10px;
-  max-width: 500px;
-  margin: 0 auto 15px;
+    display:flex;
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    max-width:500px;
+    margin:20px auto;
+    gap:10px;
 }
-
 .input-group input {
-  flex: 1;
-  padding: 16px 20px;
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.95);
-  transition: all 0.3s ease;
+    flex:1;
+    padding:14px 18px;
+    border-radius:50px;
+    border:none;
+    min-width:0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .input-group input:focus {
-  outline: none;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
 }
-
 .btn-subscribe {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 16px 30px;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
+    background:#f5576c;
+    color:white;
+    border:none;
+    padding:14px 22px;
+    border-radius:50px;
+    flex-shrink:0;
+    cursor:pointer;
+    transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
-
+/* Enhanced hover effect for button */
 .btn-subscribe:hover {
-  background: linear-gradient(135deg, var(--accent), #f5576c);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(240, 147, 251, 0.4);
+    background:#ff6c75;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+}
+.btn-subscribe:active {
+    transform: translateY(-1px) scale(1.02);
+}
+.btn-subscribe::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+.btn-subscribe:hover::after {
+    width: 200px;
+    height: 200px;
 }
 
-.newsletter-note {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* Main Footer */
-.main-footer {
-  padding: 80px 0 40px;
-  background: #111;
-}
-
+/* Footer Grid */
 .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:40px;
+    padding:80px 0 50px;
 }
 
-/* Footer Brand */
-.footer-brand {
-  max-width: 300px;
+/* Headings */
+.footer-col h4 {
+    margin-bottom:18px;
+    font-size:18px;
+    font-weight:600;
+    position: relative;
+    display: inline-block;
+}
+/* Underline animation for headings */
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #667eea;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+.footer-col:hover h4::after {
+    width: 40px;
 }
 
+/* Links */
+.footer-col ul {
+    list-style:none;
+    padding:0;
+}
+.footer-col ul li {
+    margin-bottom:10px;
+    position: relative;
+    padding-left: 0;
+    transition: padding-left 0.3s ease;
+}
+.footer-link {
+    color:rgba(255,255,255,.75);
+    text-decoration:none;
+    position:relative;
+    padding-left:0;
+    transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+/* Enhanced hover effect for links */
+.footer-link:hover {
+    color:#667eea;
+    padding-left:10px;
+    transform: translateX(5px);
+}
+.footer-link::before {
+    content: '→';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+.footer-link:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Brand Column */
 .footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: white;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:26px;
+    font-weight:700;
+    margin-bottom:15px;
+    transition: transform 0.3s ease;
 }
-
+.footer-brand:hover .footer-logo {
+    transform: translateY(-3px);
+}
 .footer-logo i {
-  color: var(--primary);
-  font-size: 32px;
+    color:#667eea;
+    transition: transform 0.5s ease, color 0.3s ease;
 }
-
+.footer-brand:hover .footer-logo i {
+    transform: rotate(15deg) scale(1.1);
+    color: #764ba2;
+}
 .brand-description {
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-  margin-bottom: 25px;
-  font-size: 14px;
+    color:rgba(255,255,255,.75);
+    line-height:1.5;
+    margin-bottom:20px;
+    transition: color 0.3s ease;
+}
+.footer-brand:hover .brand-description {
+    color: rgba(255, 255, 255, 0.9);
 }
 
+/* Social Icons - Enhanced */
 .social-icons {
-  display: flex;
-  gap: 15px;
+    display:flex;
+    gap:12px;
+}
+.social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+.social-link:hover::before {
+    left: 100%;
+}
+.social-link:hover {
+    transform: translateY(-5px) scale(1.1);
+    background: #667eea;
+    box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
 }
 
-.social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
+/* Contact Info - Enhanced */
+.contact-info li {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+    color:rgba(255,255,255,.85);
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    position: relative;
 }
-
-.social-icon:hover {
-  transform: translateY(-3px);
+.contact-item:hover {
+    color: #667eea;
+    transform: translateX(5px);
 }
-
-.social-icon.facebook:hover { background: #1877f2; }
-.social-icon.instagram:hover { background: #e4405f; }
-.social-icon.twitter:hover { background: #1da1f2; }
-.social-icon.linkedin:hover { background: #0a66c2; }
-.social-icon.pinterest:hover { background: #bd081c; }
-
-/* Footer Links */
-.footer-links h4 {
-  font-size: 18px;
-  margin-bottom: 25px;
-  color: white;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.footer-links h4::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: var(--primary);
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer-links a:hover {
-  color: var(--primary);
-  transform: translateX(5px);
-}
-
-.footer-links a::before {
-  content: '→';
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.footer-links a:hover::before {
-  opacity: 1;
-}
-
-/* Contact Info */
-.footer-contact h4 {
-  font-size: 18px;
-  margin-bottom: 25px;
-  color: white;
-  font-weight: 600;
-}
-
-.contact-info {
-  margin-bottom: 30px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 15px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
 .contact-item i {
-  color: var(--primary);
-  width: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.contact-item:hover i {
+    transform: scale(1.2);
+    color: #764ba2;
+}
+.contact-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #667eea;
+    transition: width 0.3s ease;
+}
+.contact-item:hover::after {
+    width: 100%;
 }
 
-.app-download p {
-  margin-bottom: 15px;
-  color: white;
-  font-weight: 500;
-}
-
-.app-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.app-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
-}
-
-.app-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.app-btn i {
-  font-size: 24px;
-}
-
-.app-btn div {
-  display: flex;
-  flex-direction: column;
-}
-
-.app-btn span {
-  font-size: 11px;
-  opacity: 0.8;
-}
-
-.app-btn strong {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-/* Footer Bottom */
+/* Bottom - Enhanced */
 .footer-bottom {
-  background: #000;
-  padding: 25px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background:#000;
+    padding:18px 0;
+    border-top:1px solid rgba(255,255,255,.15);
 }
-
 .footer-bottom-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
 }
-
-.copyright {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
+.legal-link {
+    color:rgba(255,255,255,.7);
+    margin-left:20px;
+    font-size:14px;
+    transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    position: relative;
+    padding: 2px 0;
 }
-
+.legal-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #667eea;
+    transition: width 0.3s ease;
+}
+.legal-link:hover {
+    color:#667eea;
+    transform: translateY(-2px);
+}
+.legal-link:hover::after {
+    width: 100%;
+}
 .highlight {
-  color: var(--primary);
-  font-weight: 600;
+    color:#667eea;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
 }
-
-.legal-links {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
+.highlight:hover {
+    color: #764ba2;
+    transform: translateY(-2px);
 }
-
-.legal-links a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  font-size: 14px;
-  transition: all 0.3s ease;
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #764ba2;
+    transition: width 0.3s ease;
 }
-
-.legal-links a:hover {
-  color: var(--primary);
-}
-
-.payment-methods {
-  display: flex;
-  gap: 15px;
-  font-size: 24px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.payment-methods i {
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.payment-methods i:hover {
-  color: white;
-  transform: translateY(-2px);
+.highlight:hover::after {
+    width: 100%;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .newsletter-content h3 {
-    font-size: 1.8rem;
-  }
-  
-  .input-group {
-    flex-direction: column;
-  }
-  
-  .input-group input,
-  .btn-subscribe {
-    width: 100%;
-  }
-  
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-  
-  .footer-bottom-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .legal-links {
-    justify-content: center;
-  }
+@media(max-width:1024px){
+    .footer-grid { grid-template-columns:repeat(3,1fr); }
 }
-
-@media (max-width: 576px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .footer-links h4 {
-    margin-top: 20px;
-  }
-  
-  .app-buttons {
-    flex-direction: column;
-  }
+@media(max-width:768px){
+    .footer-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:600px){
+    .footer-grid { grid-template-columns:1fr; text-align:center; }
+    .contact-info li { justify-content:center; }
+    .footer-bottom-content { flex-direction:column; text-align:center; gap:10px; }
+    .social-icons { justify-content:center; }
+    /* Fix link hover for mobile */
+    .footer-link:hover {
+        padding-left: 0;
+        transform: none;
+    }
+    .footer-link:hover::before {
+        opacity: 0;
+    }
+    /* Fix legal links spacing */
+    .legal-link {
+        margin: 0 10px;
+    }
 }
 </style>
 
+
 <script>
-// Newsletter Form Submission
-document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const email = this.querySelector('input[type="email"]').value;
-  
-  // Show success message
-  const form = this;
-  form.innerHTML = `
-    <div class="success-message" style="
-      background: rgba(76, 175, 80, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    ">
-      <i class="fas fa-check-circle" style="
-        font-size: 48px;
-        color: #4CAF50;
-        margin-bottom: 15px;
-      "></i>
-      <h4 style="color: white; margin-bottom: 10px;">Successfully Subscribed!</h4>
-      <p style="color: rgba(255, 255, 255, 0.8);">
-        Thank you for subscribing to our newsletter. Check your email for confirmation.
-      </p>
-    </div>
-  `;
+  document.querySelector(".newsletter-form")?.addEventListener("submit", e=>{
+    e.preventDefault();
+    alert("Subscribed successfully!");
 });
+
+
+ // onclick : 
+  function comingSoon(){
+      alert("Services for this page are currently in progress. Please check back soon.")
+  }
+
 </script>

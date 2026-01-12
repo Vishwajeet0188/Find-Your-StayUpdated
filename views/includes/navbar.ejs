@@ -150,13 +150,54 @@
 }
 
 
-@media (max-width: 768px) {
-    .profile-icon {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
-    }
-}
 
+
+/* Fix for mobile navbar collapse */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 10px;
+    border: 1px solid #eee;
+  }
+  
+  /* Stack navbar items vertically */
+  .navbar-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Center align search bar in mobile */
+  .search-form {
+    width: 100%;
+    min-width: auto;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  .search-input {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .search-btn {
+    width: 100%;
+  }
+  
+  /* Fix right side alignment in mobile */
+  .navbar-nav.ms-auto {
+    margin-left: 0 !important;
+    align-items: flex-start;
+  }
+  
+  /* Add spacing between mobile menu items */
+  .nav-link {
+    padding: 8px 0;
+    font-size: 16px;
+  }
+}
 
 </style>
