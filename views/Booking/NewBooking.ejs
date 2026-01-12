@@ -1,0 +1,262 @@
+<% layout('layouts/boilerplate') %>
+
+<h2><%= listing.title %></h2>
+
+<div class="booking-form-container">
+  <form 
+    action="/bookings" 
+    method="POST" 
+    class="booking-form"
+    data-price="<%= listing.price %>"
+    data-max-guests="<%= listing.maxGuests || 10 %>"
+  >
+
+    <input type="hidden" name="listingId" value="<%= listing._id %>">
+
+    <h3 class="form-title">Book Your Stay</h3>
+    <br>
+
+    <h3>BooKing Details</h3>
+
+    <div class="mb-3">
+        <label>Full Name</label>
+        <input type="text" name="fullName" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Address</label>
+        <textarea name="address" class="form-control" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label>Government ID Type</label>
+        <select name="govtIdType" class="form-control" required>
+            <option value="">Select ID</option>
+            <option value="Aadhaar">Aadhaar</option>
+            <option value="Passport">Passport</option>
+            <option value="Driving License">Driving License</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Government ID Number</label>
+        <input type="text" name="govtIdNumber" class="form-control" required>
+    </div>
+
+
+    <!-- Dates -->
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">Check-in Date</label>
+        <input type="date" id="checkIn" name="checkIn" class="form-control"
+          required min="<%= new Date().toISOString().split('T')[0] %>">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Check-out Date</label>
+        <input type="date" id="checkOut" name="checkOut" class="form-control" required>
+      </div>
+    </div>
+
+    <!-- Guests -->
+    <div class="form-section">
+      <label class="form-label">Number of Guests</label>
+      <div class="guests-selector">
+        <button type="button" id="decreaseGuests" class="guest-btn">-</button>
+        <input type="number" id="guests" name="guests"
+          class="form-control guests-input"
+          min="1" max="<%= listing.maxGuests || 10 %>" value="1" required>
+        <button type="button" id="increaseGuests" class="guest-btn">+</button>
+        <span class="guests-max">Max: <%= listing.maxGuests || 10 %></span>
+      </div>
+    </div>
+
+    <!-- Price -->
+    <div class="price-summary">
+      <div class="price-item">
+        <span>₹<%= listing.price %> × <span id="nightsCount">0</span> nights</span>
+        <span id="totalPrice">₹0</span>
+      </div>
+      <div class="price-item">
+        <span>GST (18%)</span>
+        <span id="gstAmount">₹0</span>
+     </div>
+      <div class="price-total">
+        <strong>Total</strong>
+        <strong id="grandTotal">₹0</strong>
+      </div>
+    </div>
+
+    <button class="submit-btn" type="submit">Confirm Booking</button>
+    <p class="form-note">Secure booking · Free cancellation within 48 hours</p>
+
+  </form>
+</div>
+
+<!-- ================= CSS ================= -->
+
+<style>
+.booking-form-container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 800px;
+  margin: 30px auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-title {
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 10px;
+}
+
+.form-label {
+  font-weight: 600;
+  margin-top: 15px;
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+}
+
+.form-control:focus {
+  border-color: #10b981;
+  outline: none;
+}
+
+.guests-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guest-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.guest-btn:hover {
+  background: #10b981;
+  color: white;
+}
+
+.guests-input {
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.price-summary {
+  background: #f8fafc;
+  padding: 20px;
+  margin-top: 25px;
+  border-radius: 12px;
+}
+
+.price-item, .price-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-total {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+.form-note {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #777;
+}
+</style>
+
+<!-- ================= JS ================= -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".booking-form");
+  const pricePerNight = Number(form.dataset.price);
+  const maxGuests = Number(form.dataset.maxGuests);
+
+  const checkIn = document.getElementById("checkIn");
+  const checkOut = document.getElementById("checkOut");
+  const guests = document.getElementById("guests");
+
+  const nightsCount = document.getElementById("nightsCount");
+  const totalPrice = document.getElementById("totalPrice");
+  const grandTotal = document.getElementById("grandTotal");
+
+  document.getElementById("increaseGuests").onclick = () => {
+    if (+guests.value < maxGuests) guests.value++;
+  };
+
+  document.getElementById("decreaseGuests").onclick = () => {
+    if (+guests.value > 1) guests.value--;
+  };
+
+function calculatePrice() {
+  if (!checkIn.value || !checkOut.value) return;
+
+  const startDate = new Date(checkIn.value);
+  const endDate = new Date(checkOut.value);
+
+  const nights = (endDate - startDate) / (1000 * 60 * 60 * 24);  // calculating total number of days.
+  if (nights <= 0) return; // stops invalid booking.
+
+  const subtotal = nights * pricePerNight;
+
+  const GST_RATE = 0.18; // 18%
+  const gst = Math.round(subtotal * GST_RATE);
+
+  const finalTotal = subtotal + gst;
+
+  nightsCount.textContent = nights; // update the value on ui
+  totalPrice.textContent = `₹${subtotal}`; // same update values on ui
+  document.getElementById("gstAmount").textContent = `₹${gst}`;   // same update values on ui
+  grandTotal.textContent = `₹${finalTotal}`;  // same update values on ui
+}
+
+
+
+  checkIn.addEventListener("change", calculatePrice);
+  checkOut.addEventListener("change", calculatePrice);
+});
+</script>

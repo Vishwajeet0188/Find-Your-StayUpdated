@@ -1,0 +1,583 @@
+<footer class="footer-section">
+  <!-- Newsletter Section -->
+  <div class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h3>Get the latest travel inspiration</h3>
+        <p>Subscribe to our newsletter for exclusive deals and destination guides</p>
+        <form class="newsletter-form">
+          <div class="input-group">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" class="btn-subscribe">
+              <i class="fa-solid fa-paper-plane"></i>
+              Subscribe
+            </button>
+          </div>
+          <p class="newsletter-note">By subscribing, you agree to our Privacy Policy</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer -->
+  <div class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>FindYourStay</span>
+          </div>
+          <p class="brand-description">
+            Your gateway to extraordinary stays worldwide. Discover luxury accommodations, 
+            unique experiences, and create unforgettable memories.
+          </p>
+          <div class="social-icons">
+            <a href="#" class="social-icon facebook" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon instagram" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon twitter" aria-label="Twitter">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-icon pinterest" aria-label="Pinterest">
+              <i class="fa-brands fa-pinterest"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <h4>For Travelers</h4>
+          <ul>
+            <li><a href="/listings">Browse Hotels</a></li>
+            <li><a href="#">Popular Destinations</a></li>
+            <li><a href="#">Travel Guides</a></li>
+            <li><a href="#">Special Offers</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Business Travel</a></li>
+          </ul>
+        </div>
+
+        <!-- For Hotels -->
+        <div class="footer-links">
+          <h4>For Hotels</h4>
+          <ul>
+            <li><a href="/listings/new">List Your Property</a></li>
+            <li><a href="#">Business Solutions</a></li>
+            <li><a href="#">Resource Center</a></li>
+            <li><a href="#">Hotel Insights</a></li>
+            <li><a href="#">Partnerships</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="/help">Help Center</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/safety">Safety Information</a></li>
+            <li><a href="/cancellation">Cancellation Options</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>support@findyourstay.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>975811126</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Banglore, India</span>
+            </div>
+          </div>
+          
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          © 2025 <span class="highlight">FindYourStay</span>. All rights reserved.
+        </div>
+        <div class="legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/cookies">Cookie Policy</a>
+          <a href="/sitemap">Sitemap</a>
+          <a href="/accessibility">Accessibility</a>
+        </div>
+        <div class="payment-methods">
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-amex" title="American Express"></i>
+          <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+          <i class="fa-brands fa-apple-pay" title="Apple Pay"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* Footer Variables */
+:root {
+  --primary: #667eea;
+  --secondary: #764ba2;
+  --accent: #f093fb;
+  --dark: #1a1a1a;
+  --light: #f8f9fa;
+  --gray: #666;
+  --light-gray: #e9ecef;
+}
+
+/* Footer Section */
+.footer-section {
+  background: var(--dark);
+  color: white;
+  margin-top: auto;
+ 
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.newsletter-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-content h3 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+}
+
+.newsletter-content p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.newsletter-form {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto 15px;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.btn-subscribe {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-subscribe:hover {
+  background: linear-gradient(135deg, var(--accent), #f5576c);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(240, 147, 251, 0.4);
+}
+
+.newsletter-note {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Main Footer */
+.main-footer {
+  padding: 80px 0 40px;
+  background: #111;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Footer Brand */
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.footer-logo i {
+  color: var(--primary);
+  font-size: 32px;
+}
+
+.brand-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+}
+
+.social-icon.facebook:hover { background: #1877f2; }
+.social-icon.instagram:hover { background: #e4405f; }
+.social-icon.twitter:hover { background: #1da1f2; }
+.social-icon.linkedin:hover { background: #0a66c2; }
+.social-icon.pinterest:hover { background: #bd081c; }
+
+/* Footer Links */
+.footer-links h4 {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-links h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-links a::before {
+  content: '→';
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover::before {
+  opacity: 1;
+}
+
+/* Contact Info */
+.footer-contact h4 {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: white;
+  font-weight: 600;
+}
+
+.contact-info {
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-item i {
+  color: var(--primary);
+  width: 20px;
+}
+
+.app-download p {
+  margin-bottom: 15px;
+  color: white;
+  font-weight: 500;
+}
+
+.app-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.app-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.app-btn i {
+  font-size: 24px;
+}
+
+.app-btn div {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-btn span {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.app-btn strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  background: #000;
+  padding: 25px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.legal-links {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.legal-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.legal-links a:hover {
+  color: var(--primary);
+}
+
+.payment-methods {
+  display: flex;
+  gap: 15px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.payment-methods i {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.payment-methods i:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .newsletter-content h3 {
+    font-size: 1.8rem;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .input-group input,
+  .btn-subscribe {
+    width: 100%;
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .legal-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-links h4 {
+    margin-top: 20px;
+  }
+  
+  .app-buttons {
+    flex-direction: column;
+  }
+}
+</style>
+
+<script>
+// Newsletter Form Submission
+document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = this.querySelector('input[type="email"]').value;
+  
+  // Show success message
+  const form = this;
+  form.innerHTML = `
+    <div class="success-message" style="
+      background: rgba(76, 175, 80, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    ">
+      <i class="fas fa-check-circle" style="
+        font-size: 48px;
+        color: #4CAF50;
+        margin-bottom: 15px;
+      "></i>
+      <h4 style="color: white; margin-bottom: 10px;">Successfully Subscribed!</h4>
+      <p style="color: rgba(255, 255, 255, 0.8);">
+        Thank you for subscribing to our newsletter. Check your email for confirmation.
+      </p>
+    </div>
+  `;
+});
+</script>

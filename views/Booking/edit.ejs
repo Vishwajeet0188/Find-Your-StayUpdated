@@ -1,0 +1,636 @@
+
+<% layout('layouts/boilerplate') %>
+
+
+<div class="edit-booking-container">
+    <div class="edit-header">
+        <h1><i class="fas fa-user-edit"></i> Edit Guest Information</h1>
+        <p>Update the guest details for your booking</p>
+    </div>
+
+    <div class="edit-form-card">
+        <form action="/bookings/<%= booking._id %>/edit" method="POST" class="edit-booking-form">
+            
+            <div class="form-section">
+                <h3 class="section-title">
+                    <i class="fas fa-user-circle section-icon"></i>
+                    Personal Information
+                </h3>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" 
+                               class="form-input"
+                               value="<%= booking.fullName %>" 
+                               required 
+                               placeholder="Enter full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" 
+                               class="form-input"
+                               value="<%= booking.email %>" 
+                               required 
+                               placeholder="Enter email address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="text" id="phone" name="phone" 
+                               class="form-input"
+                               value="<%= booking.phone %>" 
+                               required 
+                               placeholder="Enter phone number">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3 class="section-title">
+                    <i class="fas fa-home section-icon"></i>
+                    Address Details
+                </h3>
+                
+                <div class="form-group">
+                    <label for="address" class="form-label">Complete Address</label>
+                    <textarea id="address" name="address" 
+                              class="form-textarea"
+                              rows="3"
+                              placeholder="Enter complete address"><%= booking.address %></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3 class="section-title">
+                    <i class="fas fa-id-card section-icon"></i>
+                    Government ID Details
+                </h3>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="govtIdType" class="form-label">ID Type</label>
+                        <div class="select-wrapper">
+                            <select id="govtIdType" name="govtIdType" class="form-select">
+                                <option value="" <%= booking.govtIdType ? '' : 'selected' %> disabled>
+                                    Select ID Type
+                                </option>
+                                <option value="Aadhaar" <%= booking.govtIdType === 'Aadhaar' ? 'selected' : '' %>>Aadhaar Card</option>
+                                <option value="Passport" <%= booking.govtIdType === 'Passport' ? 'selected' : '' %>>Passport</option>
+                                <option value="Driver's License" <%= booking.govtIdType === 'Driver\'s License' ? 'selected' : '' %>>Driver's License</option>
+                                <option value="PAN" <%= booking.govtIdType === 'PAN' ? 'selected' : '' %>>PAN Card</option>
+                                <option value="Voter ID" <%= booking.govtIdType === 'Voter ID' ? 'selected' : '' %>>Voter ID</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="govtIdNumber" class="form-label">ID Number</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="govtIdNumber" name="govtIdNumber" 
+                                   class="form-input"
+                                   value="<%= booking.govtIdNumber %>" 
+                                   placeholder="Enter 12-digit ID number">
+                        </div>
+                        <div class="security-note">
+                            <i class="fas fa-shield-alt"></i>
+                            Last 4 digits will be masked for security: 
+                            <span class="masked-id">
+                                <% if (booking.govtIdNumber && booking.govtIdNumber.length >= 4) { %>
+                                    ****<%= booking.govtIdNumber.slice(-4) %>
+                                <% } else { %>
+                                    Not provided
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="current-booking-info">
+                <div class="info-header">
+                    <h4><i class="fas fa-calendar-check"></i> Current Booking Information</h4>
+                </div>
+                
+                <div class="info-details">
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <span class="detail-label">
+                                <i class="fas fa-bed"></i> Property Name
+                            </span>
+                            <span class="detail-value"><%= booking.listing.title %></span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">
+                                <i class="fas fa-calendar-alt"></i> Dates
+                            </span>
+                            <span class="detail-value">
+                                <span class="date-item">
+                                    <span class="date-type">Check-in:</span>
+                                    <span class="date"><%= booking.checkIn.toDateString() %></span>
+                                </span>
+                                <span class="date-arrow">→</span>
+                                <span class="date-item">
+                                    <span class="date-type">Check-out:</span>
+                                    <span class="date"><%= booking.checkOut.toDateString() %></span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <span class="detail-label">
+                                <i class="fas fa-tag"></i> Status
+                            </span>
+                            <span class="detail-value">
+                                <span class="booking-status status-<%= booking.status.toLowerCase() %>">
+                                    <i class="fas fa-circle"></i> <%= booking.status %>
+                                </span>
+                            </span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">
+                                <i class="fas fa-moon"></i> Nights
+                            </span>
+                            <span class="detail-value">
+                                <% 
+                                    const diffTime = Math.abs(new Date(booking.checkOut) - new Date(booking.checkIn));
+                                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                                %>
+                                <%= diffDays %> night<%= diffDays !== 1 ? 's' : '' %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn-save">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+                <a href="/bookings" class="btn-cancel">
+                    <i class="fas fa-times"></i> Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .edit-booking-container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 20px;
+    }
+    
+    .edit-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .edit-header h1 {
+        font-size: 2.2rem;
+        color: #1E293B;
+        margin-bottom: 10px;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .edit-header h1 i {
+        color: #8B5CF6;
+        margin-right: 10px;
+    }
+    
+    .edit-header p {
+        color: #64748B;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .edit-form-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        padding: 35px;
+        border: 1px solid #E5E7EB;
+    }
+    
+    .form-section {
+        margin-bottom: 35px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #F1F5F9;
+    }
+    
+    .form-section:last-of-type {
+        border-bottom: none;
+        margin-bottom: 25px;
+    }
+    
+    .section-title {
+        color: #1E293B;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .section-icon {
+        color: #8B5CF6;
+        font-size: 1.1rem;
+    }
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-label {
+        display: block;
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.9rem;
+    }
+    
+    .form-input, .form-textarea, .form-select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #E5E7EB;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-family: 'Nunito', sans-serif;
+        transition: all 0.3s ease;
+        background: white;
+    }
+    
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+        outline: none;
+        border-color: #8B5CF6;
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    }
+    
+    .form-textarea {
+        resize: vertical;
+        min-height: 90px;
+        line-height: 1.5;
+    }
+    
+    .select-wrapper {
+        position: relative;
+    }
+    
+    .form-select {
+        appearance: none;
+        cursor: pointer;
+        padding-right: 45px;
+    }
+    
+    .select-arrow {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8B5CF6;
+        pointer-events: none;
+    }
+    
+    .security-note {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        padding: 10px 12px;
+        background: #F8FAFC;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        color: #4B5563;
+        border: 1px solid #E5E7EB;
+    }
+    
+    .security-note i {
+        color: #8B5CF6;
+        font-size: 0.9rem;
+    }
+    
+    .masked-id {
+        font-family: 'Courier New', monospace;
+        font-weight: 600;
+        color: #1E293B;
+        background: rgba(139, 92, 246, 0.08);
+        padding: 2px 6px;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem;
+    }
+    
+    /* Current Booking Info - UPDATED */
+    .current-booking-info {
+        background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+        padding: 25px;
+        border-radius: 12px;
+        margin: 35px 0;
+        border: 1px solid #E5E7EB;
+    }
+    
+    .info-header {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+    }
+    
+    .info-header h4 {
+        color: #1E293B;
+        font-size: 1.2rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .info-header h4 i {
+        color: #8B5CF6;
+    }
+    
+    .info-details {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .detail-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    @media (max-width: 768px) {
+        .detail-row {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    }
+    
+    .detail-item {
+        background: white;
+        padding: 18px;
+        border-radius: 10px;
+        border: 1px solid #E5E7EB;
+        transition: all 0.3s ease;
+    }
+    
+    .detail-item:hover {
+        border-color: #8B5CF6;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+    }
+    
+    .detail-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        color: #6B7280;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    
+    .detail-label i {
+        color: #8B5CF6;
+        font-size: 0.9rem;
+    }
+    
+    .detail-value {
+        display: block;
+        font-size: 1.05rem;
+        color: #1F2937;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.4;
+    }
+    
+    .date-item {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    
+    .date-type {
+        font-size: 0.85rem;
+        color: #6B7280;
+        font-weight: 500;
+        margin-right: 5px;
+    }
+    
+    .date {
+        font-weight: 600;
+        color: #1F2937;
+    }
+    
+    .date-arrow {
+        color: #8B5CF6;
+        font-weight: 600;
+        margin: 0 10px;
+    }
+    
+    .booking-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+    
+    .booking-status i {
+        font-size: 0.6rem;
+    }
+    
+    .status-confirmed, .status-upcoming {
+        background: #8B5CF6;
+        color: white;
+    }
+    
+    .status-pending {
+        background: #F59E0B;
+        color: white;
+    }
+    
+    .status-completed {
+        background: #10B981;
+        color: white;
+    }
+    
+    .status-cancelled {
+        background: #EF4444;
+        color: white;
+    }
+    
+    .form-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+        margin-top: 35px;
+        padding-top: 25px;
+        border-top: 1px solid #F1F5F9;
+    }
+    
+    .btn-save, .btn-cancel {
+        padding: 12px 28px;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: none;
+    }
+    
+    .btn-save {
+        background: #8B5CF6;
+        color: white;
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+    }
+    
+    .btn-save:hover {
+        background: #7C3AED;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.35);
+        text-decoration: none;
+    }
+    
+    .btn-cancel {
+        background: white;
+        color: #4B5563;
+        border: 2px solid #E5E7EB;
+    }
+    
+    .btn-cancel:hover {
+        background: #F9FAFB;
+        border-color: #8B5CF6;
+        color: #7C3AED;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+        .edit-form-card {
+            padding: 25px;
+        }
+        
+        .edit-header h1 {
+            font-size: 1.8rem;
+        }
+        
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .form-actions {
+            flex-direction: column;
+        }
+        
+        .btn-save, .btn-cancel {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .edit-form-card {
+            padding: 20px;
+        }
+        
+        .edit-header h1 {
+            font-size: 1.6rem;
+        }
+        
+        .form-input, .form-textarea, .form-select {
+            padding: 10px 14px;
+        }
+        
+        .current-booking-info {
+            padding: 20px;
+        }
+        
+        .detail-item {
+            padding: 15px;
+        }
+        
+        .date-item {
+            display: block;
+            margin-right: 0;
+            margin-bottom: 5px;
+        }
+        
+        .date-arrow {
+            display: block;
+            text-align: center;
+            margin: 5px 0;
+            transform: rotate(90deg);
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Auto-format Aadhaar number
+        const idInput = document.getElementById('govtIdNumber');
+        if (idInput) {
+            idInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s+/g, '');
+                
+                // Format Aadhaar numbers with spaces every 4 digits
+                if (value.length <= 12) {
+                    value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+                }
+                
+                e.target.value = value;
+            });
+        }
+        
+        // Auto-capitalize names
+        const nameInput = document.getElementById('fullName');
+        if (nameInput) {
+            nameInput.addEventListener('blur', function() {
+                this.value = this.value.split(' ').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+                ).join(' ');
+            });
+        }
+        
+        // Smooth animation for detail items
+        const detailItems = document.querySelectorAll('.detail-item');
+        detailItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(10px)';
+            
+            setTimeout(() => {
+                item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    });
+</script>

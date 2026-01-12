@@ -1,0 +1,1695 @@
+
+    <title>FindYourStay | Luxury Hotels & Resorts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Header - Original Navbar -->
+    <header class="header" id="header">
+        <a href="/" class="logo">
+            <i class="fas fa-crown"></i>
+            <span>FindYourStay</span>
+        </a>
+        <nav class="nav">
+            <a href="/"><i class="fas fa-home"></i> Home</a>
+            <a href="/listings"><i class="fas fa-search"></i> Explore</a>
+            <!-- <a href="#offers"><i class="fas fa-gift"></i> Offers</a> -->
+            <!-- <a href="#gallery"><i class="fas fa-images"></i> Gallery</a> -->
+           <a href="#"><i class="fas fa-map-marker-alt"></i> Destinations</a>
+           <a href="#features"><i class="fas fa-star"></i> Features</a>
+             
+            <% if (user) { %>
+                <a href="/dashboard" class="btn btn-primary">
+                    <i class="fas fa-user-circle"></i> Dashboard
+                </a>
+            <% } else { %>
+                <a href="/login" class="btn btn-primary btn-login">Login</a>
+            <% } %>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover Luxury Stays Worldwide</h1>
+                <p>Experience unparalleled comfort with our curated collection of premium hotels, resorts, and exclusive accommodations. Your dream vacation starts here.</p>
+                <div class="hero-buttons">
+                    <a href="/listings" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                        Explore Stays
+                    </a>
+                    <a href="#offers" class="btn btn-secondary" style="background: rgba(255,255,255,0.1); border-color: white; color: white;">
+                        <i class="fas fa-gift"></i>
+                        View Offers
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="offers-section" id="offers">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-subtitle">Exclusive Deals</h3>
+                <h2 class="section-title">Special Offers</h2>
+                <p class="section-desc">Limited time offers on premium accommodations worldwide. Book now and save!</p>
+            </div>
+            
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-badge">Save 30%</div>
+                    <div class="offer-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Early Bird Summer Sale</h3>
+                        <p>Book 90 days in advance and save big on luxury beach resorts and tropical getaways.</p>
+                        <a href="/listings?offer=early-bird" class="btn btn-primary">
+                            <i class="fas fa-bolt"></i>
+                            View Offers
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-badge">Weekend Deal</div>
+                    <div class="offer-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <i class="fas fa-calendar-weekend"></i>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Weekend Getaways</h3>
+                        <p>Plan your weekend escape and enjoy premium beach resorts at special prices.</p>
+                        <a href="/listings?offer=weekend" class="btn btn-primary">
+                            <i class="fas fa-clock"></i>
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-badge">Loyalty Bonus</div>
+                    <div class="offer-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="offer-content">
+                        <h3>Member Exclusive</h3>
+                        <p>Join our loyalty program and enjoy extra 15% off on all bookings, plus exclusive benefits.</p>
+                        <a href="/signup" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            Join Free
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sliding Image Gallery -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-subtitle">Featured Properties</h3>
+                <h2 class="section-title">Luxury Gallery</h2>
+                <p class="section-desc">Explore our exclusive collection of premium accommodations around the world</p>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-slider" id="gallerySlider">
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Luxury Beach Resort">
+                        <div class="slide-overlay">
+                            <h3>Beachfront Villa Paradise</h3>
+                            <p>Maldives • Private Pool • Direct Beach Access • Personal Butler</p>
+                            <a href="/listings" class="btn btn-primary">View Listings</a>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Mountain Lodge">
+                        <div class="slide-overlay">
+                            <h3>Alpine Mountain Retreat</h3>
+                            <p>Swiss Alps • Fireplace • Ski-in/Ski-out • Spa & Wellness</p>
+                            <a href="/listings" class="btn btn-primary">View Listings</a>
+
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-slide">
+                        <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg" alt="City Hotel">
+                        <div class="slide-overlay">
+                            <h3>Skyline Penthouse Suite</h3>
+                            <p>New York • Panoramic City Views • Rooftop Pool • 24/7 Concierge</p>
+                            <a href="/listings" class="btn btn-primary">View Listings</a>
+
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-slide">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Desert Resort">
+                        <div class="slide-overlay">
+                            <h3>Desert Oasis Resort</h3>
+                            <p>Dubai • Private Villa • Infinity Pool • Luxury Spa</p>
+                            <a href="/listings" class="btn btn-primary">View Listings</a>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="gallery-nav gallery-prev" id="prevSlide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav gallery-next" id="nextSlide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="gallery-dots" id="galleryDots">
+                <!-- Dots will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-subtitle">Why Choose Us</h3>
+                <h2 class="section-title">Unmatched Experience</h2>
+                <p class="section-desc">We're committed to making your travel experience exceptional from start to finish</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Secure Booking</h3>
+                    <p>Bank-level security with 256-bit encryption ensures your personal and payment information is always protected.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3 class="feature-title">Best Price Guarantee</h3>
+                    <p>Found a better price elsewhere? We'll match it and give you an additional 10% discount on your booking.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">24/7 Support</h3>
+                    <p>Our multilingual support team is available around the clock to assist you with any questions or concerns.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    <h3 class="feature-title">Flexible Cancellation</h3>
+                    <p>Enjoy free cancellation on most hotels up to 24 hours before check-in. Travel with peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready for Your Next Adventure?</h2>
+                <p class="cta-desc">Join millions of travelers who trust FindYourStay for their luxury hotel bookings. Your dream vacation awaits!</p>
+                <div class="cta-buttons">
+                    <a href="/listings" class="btn btn-primary" style="background: var(--white); color: var(--primary);">
+                        <i class="fas fa-compass"></i>
+                        Explore All Stays
+                    </a>
+                    <% if (!user) { %>
+                    <a href="/signup" class="btn btn-secondary" style="border-color: var(--white); color: var(--white);">
+                        <i class="fas fa-user-plus"></i>
+                        Join Free
+                    </a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-spacer" style="height: 100px; background: var(--light);"></div>
+
+    <!-- Footer -->
+  
+   <!-- Footer Section -->
+<footer class="footer-section">
+  <!-- Newsletter Section -->
+  <div class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h3>Get Exclusive Travel Deals</h3>
+        <p>Subscribe to our newsletter for special offers and destination inspiration</p>
+        <form class="newsletter-form">
+          <div class="input-group">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-subscribe">
+              <i class="fas fa-paper-plane"></i>
+              Subscribe
+            </button>
+          </div>
+          <p class="newsletter-note">We respect your privacy. Unsubscribe at any time.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer -->
+  <div class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fas fa-crown"></i>
+            <span>FindYourStay</span>
+          </div>
+          <p class="brand-description">
+            Discover luxury accommodations and unforgettable experiences worldwide. 
+            Your journey to extraordinary stays begins here.
+          </p>
+          <div class="social-icons">
+            <a href="#" class="social-icon facebook" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon instagram" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon twitter" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-icon youtube" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/listings">Browse Hotels</a></li>
+            <li><a href="#" onclick="comingSoon()">Special Offers</a></li>
+            <li><a href="#gallery">Luxury Collection</a></li>
+            <li><a href="/listings?type=beach">Beach Resorts</a></li>
+            <li><a href="/listings?type=mountain">Mountain Retreats</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="/GetInTouch">Help Center</a></li>
+            <li><a href="/GetInTouch">Contact Us</a></li>
+            <li><a href="#" onclick="comingSoon()">FAQ</a></li>
+            <li><a href="/GetInTouch">Cancellation Policy</a></li>
+            <li><a href="/GetInTouch">Safety Information</a></li>
+            <li><a href="/GetInTouch">24/7 Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/GetInTouch">About Us</a></li>
+            <li><a href="#" onclick="comingSoon()">Careers</a></li>
+            <li><a href="#" onclick="comingSoon()">Travel Blog</a></li>
+            <li><a href="#" onclick="comingSoon()">Partnerships</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>bookings@findyourstay.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>975811126</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Banglore, India</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          © 2024 <span class="highlight">FindYourStay</span>. All rights reserved.
+        </div>
+        <div class="legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/cookies">Cookie Policy</a>
+          <a href="/legal">Legal</a>
+          <a href="/accessibility">Accessibility</a>
+        </div>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa" title="Visa"></i>
+          <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fab fa-cc-amex" title="American Express"></i>
+          <i class="fab fa-cc-paypal" title="PayPal"></i>
+          <i class="fab fa-cc-apple-pay" title="Apple Pay"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --primary: #667eea;
+        --primary-dark: #5a67d8;
+        --secondary: #764ba2;
+        --accent: #ff6b6b;
+        --accent-alt: #ff8e53;
+        --light: #f8f9fa;
+        --dark: #1a202c;
+        --gray: #718096;
+        --light-gray: #e2e8f0;
+        --dark: #1a1a1a;
+        --gray: #666;
+        --light-gray: #e9ecef;
+        --white: #ffffff;
+        --shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.15);
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.7;
+        color: var(--dark);
+        background: var(--white);
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 100px 0;
+    }
+
+    /* Header - Keeping your original navbar style */
+    .header {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 20px 40px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+    }
+
+    .header.scrolled {
+        padding: 15px 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--primary);
+        font-family: 'Playfair Display', serif;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .logo:hover {
+        transform: translateY(-2px);
+    }
+
+    .logo i {
+        font-size: 32px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 4px 6px rgba(102, 126, 234, 0.3));
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav a {
+        text-decoration: none;
+        color: var(--gray);
+        font-weight: 500;
+        font-size: 16px;
+        transition: var(--transition);
+        position: relative;
+    }
+
+    .nav a:hover {
+        color: var(--primary);
+        transform: translateY(-2px);
+    } */
+
+    .nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        transition: width 0.4s ease;
+        border-radius: 2px;
+    }
+
+    .nav a:hover::after {
+        width: 100%;
+    }
+    .nav .btn-login {
+        background: linear-gradient(135deg, #38b2ac, #319795);
+        color: white;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(56, 178, 172, 0.3);
+    }
+
+    .nav .btn-login:hover {
+        background: linear-gradient(135deg, #319795, #2c7a7b);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(56, 178, 172, 0.4);
+    }
+
+    .btn {
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: var(--transition);
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.7s ease;
+    }
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--white);
+        box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .btn-secondary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        transition: width 0.4s ease;
+        z-index: -1;
+    }
+
+    .btn-secondary:hover {
+        color: var(--white);
+        border-color: transparent;
+    }
+
+    .btn-secondary:hover::before {
+        width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        background: linear-gradient(135deg, 
+            rgba(102, 126, 234, 0.95) 0%, 
+            rgba(118, 75, 162, 0.95) 100%), 
+            url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 30%, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding-top: 80px;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        line-height: 1.2;
+        font-family: 'Playfair Display', serif;
+        text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+        animation: fadeInUp 1s ease;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 48px;
+        opacity: 0.9;
+        max-width: 600px;
+        animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    /* Special Offers Section */
+    .offers-section {
+        background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .offers-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to bottom, var(--white), transparent);
+        z-index: 1;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-subtitle {
+        color: var(--primary);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        display: inline-block;
+        padding: 8px 20px;
+        background: rgba(102, 126, 234, 0.1);
+        border-radius: 50px;
+    }
+
+    .section-title {
+        font-size: 3.2rem;
+        font-weight: 700;
+        color: var(--dark);
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 24px;
+        line-height: 1.2;
+    }
+
+    .section-desc {
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+
+    .offers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .offer-card {
+        background: var(--white);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+        height: 100%;
+        border: 1px solid rgba(102, 126, 234, 0.1);
+    }
+
+    .offer-card:hover {
+        transform: translateY(-16px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--primary);
+    }
+
+    .offer-badge {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        z-index: 10;
+        box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .offer-image {
+        height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 70px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .offer-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+    .offer-image i {
+        z-index: 2;
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+    }
+
+    .offer-content {
+        padding: 40px;
+    }
+
+    .offer-content h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 16px;
+        line-height: 1.4;
+    }
+
+    .offer-content p {
+        color: var(--gray);
+        margin-bottom: 32px;
+        line-height: 1.7;
+        font-size: 1.05rem;
+    }
+
+    .offer-content .btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 1.05rem;
+        border-radius: 12px;
+    }
+
+    /* Sliding Image Gallery */
+    .gallery-section {
+        background: var(--dark);
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gallery-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+    }
+
+    .gallery-section .section-title {
+        color: var(--white);
+    }
+
+    .gallery-section .section-desc {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .gallery-container {
+        position: relative;
+        height: 500px;
+        margin: 60px auto;
+        overflow: hidden;
+        border-radius: 24px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-slider {
+        display: flex;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+    }
+
+    .gallery-slide {
+        min-width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gallery-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s ease;
+    }
+
+    .gallery-slide:hover img {
+        transform: scale(1.05);
+    }
+
+    .slide-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+        padding: 60px 40px 40px;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .gallery-slide:hover .slide-overlay {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .slide-overlay h3 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+        color: var(--white);
+    }
+
+    .slide-overlay p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+
+    .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: none;
+        color: var(--white);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        transition: var(--transition);
+        opacity: 0.7;
+    }
+
+    .gallery-nav:hover {
+        background: rgba(255, 255, 255, 0.25);
+        opacity: 1;
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .gallery-prev {
+        left: 30px;
+    }
+
+    .gallery-next {
+        right: 30px;
+    }
+
+    .gallery-dots {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 40px;
+    }
+
+    .gallery-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: var(--transition);
+        border: 2px solid transparent;
+    }
+
+    .gallery-dot.active {
+        background: var(--white);
+        transform: scale(1.3);
+    }
+
+    .gallery-dot:hover {
+        background: var(--white);
+        transform: scale(1.2);
+    }
+
+    /* Features Section */
+    .features-section {
+        background: var(--light);
+        position: relative;
+    }
+
+    .features-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: linear-gradient(to bottom, var(--white), transparent);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .feature-card {
+        text-align: center;
+        padding: 50px 40px;
+        background: var(--white);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid rgba(102, 126, 234, 0.1);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--primary);
+    }
+
+    .feature-icon {
+        width: 90px;
+        height: 90px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 32px;
+        color: var(--white);
+        font-size: 36px;
+        transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon {
+        transform: rotateY(180deg) scale(1.1);
+    }
+
+    .feature-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--dark);
+    }
+
+    .feature-card p {
+        color: var(--gray);
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--white);
+        text-align: center;
+        padding: 120px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('https://images.unsplash.com/photo-1444201983204-c43cbd584d93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.08;
+        animation: floatBackground 20s linear infinite;
+    }
+
+    @keyframes floatBackground {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .cta-title {
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        font-family: 'Playfair Display', serif;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-desc {
+        font-size: 1.3rem;
+        margin-bottom: 48px;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto 48px;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .header {
+            padding: 15px 20px;
+        }
+        
+        .nav {
+            gap: 15px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+        }
+        
+        .section-title, .cta-title {
+            font-size: 2.4rem;
+        }
+        
+        .offers-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .gallery-container {
+            height: 400px;
+        }
+        
+        .gallery-nav {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+        
+        .gallery-prev {
+            left: 15px;
+        }
+        
+        .gallery-next {
+            right: 15px;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+        }
+        
+        .cta-buttons .btn {
+            width: 100%;
+        }
+    }
+    /* Footer Section */
+.footer-section {
+  background: var(--dark);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  animation: floatBackground 20s linear infinite;
+}
+
+@keyframes floatBackground {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.newsletter-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-content h3 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+  color: white;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-content p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto 15px;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input-group input:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 8px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-subscribe {
+  background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+}
+
+.btn-subscribe:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4);
+}
+
+.newsletter-note {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 10px;
+}
+
+/* Main Footer */
+.main-footer {
+  padding: 80px 0 40px;
+  background: #111;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Footer Brand */
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.footer-logo i {
+  color: var(--primary);
+  font-size: 32px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 6px rgba(102, 126, 234, 0.3));
+}
+
+.brand-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 18px;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.1);
+  background: var(--primary);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.social-icon.facebook:hover { background: #1877f2; }
+.social-icon.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-icon.twitter:hover { background: #1da1f2; }
+.social-icon.linkedin:hover { background: #0a66c2; }
+.social-icon.youtube:hover { background: #ff0000; }
+
+/* Footer Links */
+.footer-links h4 {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+  margin-left: 30px;
+}
+
+.footer-links h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(8px);
+}
+
+.footer-links a::before {
+  content: '→';
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.footer-links a:hover::before {
+  opacity: 1;
+}
+
+/* Contact Info */
+.footer-contact h4 {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-contact h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.contact-info {
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.contact-item i {
+  color: var(--primary);
+  width: 20px;
+  font-size: 16px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  background: #000;
+  padding: 25px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.highlight {
+  color: var(--primary);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.legal-links {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.legal-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.legal-links a:hover {
+  color: var(--primary);
+}
+
+.legal-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.legal-links a:hover::after {
+  width: 100%;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 15px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.payment-methods i {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: grayscale(0.5);
+}
+
+.payment-methods i:hover {
+  color: white;
+  transform: translateY(-4px) scale(1.2);
+  filter: grayscale(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .newsletter-content h3 {
+    font-size: 1.8rem;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .input-group input,
+  .btn-subscribe {
+    width: 100%;
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .legal-links {
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .main-footer {
+    padding: 60px 0 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-links h4 {
+    margin-top: 20px;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .newsletter-section {
+    padding: 40px 0;
+  }
+}
+
+</style>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Gallery Slider
+        const gallerySlider = document.getElementById('gallerySlider');
+        const prevSlide = document.getElementById('prevSlide');
+        const nextSlide = document.getElementById('nextSlide');
+        const galleryDots = document.getElementById('galleryDots');
+        
+        let currentSlide = 0;
+        const totalSlides = gallerySlider.children.length;
+        const slideWidth = 100; // Percentage
+        
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'gallery-dot';
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            galleryDots.appendChild(dot);
+        }
+        
+        function updateSlider() {
+            gallerySlider.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('.gallery-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+        }
+        
+        function nextSlideHandler() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+        
+        function prevSlideHandler() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+        
+        prevSlide.addEventListener('click', prevSlideHandler);
+        nextSlide.addEventListener('click', nextSlideHandler);
+        
+        // Auto slide every 5 seconds
+        let slideInterval = setInterval(nextSlideHandler, 5000);
+        
+        // Pause auto-slide on hover
+        document.querySelector('.gallery-container').addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        document.querySelector('.gallery-container').addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlideHandler, 5000);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        document.querySelectorAll('.offer-card, .feature-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+
+
+        // onclick : 
+        function comingSoon(){
+            alert("Services for this page are currently in progress. Please check back soon.")
+        }
+
+
+    </script>
+</body>
+</html>

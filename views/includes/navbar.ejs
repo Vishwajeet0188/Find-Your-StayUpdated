@@ -1,0 +1,162 @@
+<nav class="navbar navbar-expand-md lg bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    
+    <!-- LOGO -->
+    <a class="navbar-brand" href="/">
+      <i class="fa-solid fa-earth-americas"></i>
+    </a>
+
+    <!-- TOGGLER FOR SMALL SCREEN -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <!-- LEFT SIDE -->
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <!-- 🔍 SEARCH BAR IN CENTER -->
+      <div class="d-flex justify-content-center flex-grow-1">
+        <form action="/listings" method="GET" class="search-form">
+          <input 
+            type="text" 
+            name="search" 
+            class="form-control search-input" 
+            placeholder="Search destinations..."
+            value="<%= typeof search !== 'undefined' ? search : '' %>"
+          >
+          <button class="btn btn-danger search-btn" type="submit">Search</button>
+        </form>
+      </div>
+
+      
+        <!-- RIGHT SIDE -->
+        <div class="navbar-nav ms-auto align-items-center">
+          <a class="nav-link" href="/listings/host">Host Your Place</a>
+
+          <!-- SAFE CHECK FOR LOGIN -->
+          <% if (typeof currUser === "undefined" || !currUser) { %>
+            <a class="nav-link" href="/login"><b>Login</b></a>
+            <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <% } else { %>
+            
+            <% if (currUser.role === "admin") { %>
+              <a class="nav-link" href="/admin/dashboard"><b>Admin Panel</b></a>
+            <% } %>
+
+            <!-- WISHLIST LINK -->
+            <a class="nav-link" href="/wishlist"><i class="fa-solid fa-heart"></i> Wishlist</a>
+
+            <!-- PROFILE ICON - FIXED VERSION -->
+            <div class="nav-item dropdown">
+              <a class="nav-link p-0" href="/profile" role="button">
+                <div class="profile-icon" title="My Profile">
+                  <% 
+                    let initials = 'US';
+                    if (currUser.firstName && currUser.lastName) {
+                      initials = currUser.firstName.charAt(0).toUpperCase() + currUser.lastName.charAt(0).toUpperCase();
+                    } else if (currUser.username) {
+                      initials = currUser.username.charAt(0).toUpperCase();
+                    }
+                  %>
+                  <%= initials %>
+                </div>
+              </a>
+            </div>
+
+            <!-- LOGOUT LINK -->
+            <a class="nav-link" href="/logout"><b>Logout</b></a>
+          <% } %>
+        </div>
+    </div>
+  </div>
+</nav>
+
+
+
+<style>
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 45%;
+  min-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-input {
+  border-radius: 30px;
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  margin-left: 25px;
+}
+
+.search-btn {
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-weight: 500;
+}
+
+.search-input:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  transition: 0.2s ease-in-out;
+}
+
+
+/* Profile Icon Styles */
+.profile-container {
+  margin: 0 12px;
+}
+
+.profile-icon-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    margin-left: 6px;
+    margin-right: 5px;
+}
+
+.profile-icon:hover {
+    transform: scale(1.05);
+    border-color: #667eea;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+.navbar-nav .profile-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
+@media (max-width: 768px) {
+    .profile-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+}
+
+
+</style>
