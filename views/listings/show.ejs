@@ -1,10 +1,16 @@
-    <% layout('layouts/boilerplate') %>
+<% layout('layouts/boilerplate') %>
 
     <!-- ====================== MAIN LISTING SECTION ====================== -->
     <div class="row">
         <div class="col-6 offset-2 mt-3">
 
-            <h3>Listing Details</h3>
+            <h3 style="text-align: center;">Listing Details</h3>
+            <br>
+
+            <h3 class="listing-title-main">
+                <i class="bi bi-building me-2"></i>
+                <%= listing.title %>
+            </h3>
 
             <!-- LISTING CARD WITH OWNER BADGE -->
             <div class="card" style="position: relative;">
@@ -17,29 +23,85 @@
                 </div>
                 <% } %>
 
-             <img 
-                src="<%= listing.image.url ? listing.image.url : listing.image %>" 
-                class="card-img-top show-img" 
-                alt="listing-image"
-            >
-
+                <img 
+                    src="<%= listing.image.url ? listing.image.url : listing.image %>" 
+                    class="card-img-top show-img" 
+                    alt="listing-image"
+                >
+                <br><br>
                 <div class="card-body">
-                    <p class="card-text"><%= listing.title %></p>
+                    <!-- Address Box -->
+                        <div class="address-box">
+                            <div class="address-icon">
+                                <i class="bi bi-house-door"></i>
+                            </div>
+                            <div class="address-content">
+                                <div class="address-title">Property Address</div>
+                                <div class="address-location">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <%= listing.location %>
+                                </div>
+                                <div class="address-country">
+                                    <i class="bi bi-globe"></i>
+                                    <%= listing.country %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- MODIFIED LISTING DETAILS - Better Design -->
+            <div class="details-card mt-3">
+                <div class="details-header">
+                    <h5><i class="bi bi-info-circle me-2"></i>Property Details</h5>
+                </div>
+                
+                <div class="details-grid">
+                    <!-- Price Card -->
+                    <div class="detail-item price-card">
+                        <div class="detail-icon">
+                            <i class="bi bi-currency-rupee"></i>
+                        </div>
+                        <div class="detail-content">
+                            <span class="detail-label">Price per night</span>
+                            <span class="detail-value">₹ <%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %></span>
+                        </div>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="detail-content">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-value"><%= listing.location %></span>
+                        </div>
+                    </div>
+
+                    <!-- Country Card -->
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <div class="detail-content">
+                            <span class="detail-label">Country</span>
+                            <span class="detail-value"><%= listing.country %></span>
+                        </div>
+                    </div>
+
+                    <!-- Description Card (Full width) -->
+                    <div class="detail-item full-width">
+                        <div class="detail-icon">
+                            <i class="bi bi-card-text"></i>
+                        </div>
+                        <div class="detail-content">
+                            <span class="detail-label">Description</span>
+                            <p class="detail-description"><%= listing.description %></p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- LISTING DETAILS -->
-            <ul class="list-group list-group-flush mt-3">
-                <li class="list-group-item"><b>Title:</b> <%= listing.title %></li>
-                <li class="list-group-item"><b>Description:</b> <%= listing.description %></li>
-                <li class="list-group-item">
-                    <b>Price:</b> ₹ <%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %>
-                </li>
-                <li class="list-group-item"><b>Location:</b> <%= listing.location %></li>
-                <li class="list-group-item"><b>Country:</b> <%= listing.country %></li>
-            </ul>
-
-        
 
             <!-- SHOW EDIT + DELETE TO ANY LOGGED-IN USER -->
             <% if (currUser && listing.owner && listing.owner._id.toString() === currUser._id.toString()) { %>
@@ -63,27 +125,21 @@
     </div>
 
     <!-- Booking Button -->
+    <div class="book">
+        <a href="/bookings/new/<%= listing._id %>" class="book-btn pulse-btn">
+            <i class="bi bi-calendar-plus me-2"></i>
+            Book Now
+        </a>
+    </div>
 
-        <div class="book">
-            <a href="/bookings/new/<%= listing._id %>" class="book-btn pulse-btn">
-                <i class="bi bi-calendar-plus me-2"></i>
-                Book Now
-            </a>
-        </div>
-
+    <!-- Rest of your code remains the same -->
     <!-- REVIEW FORM -->
-
     <form action="/listings/<%= listing._id %>/reviews" method="POST" novalidate class="mt-4 needs-validation">
-
         <div class="d-flex justify-content-center">
             <div class="card shadow-sm p-4" style="width: 450px; border-radius: 15px;">
-
                 <h5 class="text-center mb-3">Leave a Review</h5>
-
                 <!-- ⭐ STARABILITY RATING -->
-                
                 <fieldset class="starability-slot">
-                    <!-- <legend>First rating:</legend> -->
                     <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
                     <input type="radio" id="first-rate1" name="review[rating]" value="1" />
                     <label for="first-rate1" title="Terrible">1 star</label>
@@ -97,7 +153,6 @@
                     <label for="first-rate5" title="Amazing">5 stars</label>
                 </fieldset>
 
-
                 <!-- COMMENT -->
                 <div class="mb-3 text-center">
                     <label for="comment" class="form-label fw-semibold">Your Review:</label>
@@ -108,7 +163,6 @@
                             style="width: 90%; resize: none;"
                             placeholder="Write your thoughts..."
                             required></textarea>
-
                     <div class="invalid-feedback">
                         Please Add Some Valid Comment for Reviews
                     </div>
@@ -117,87 +171,58 @@
                 <div class="text-center">
                     <button type="submit" class="btn btn-success px-4">Submit Review</button>
                 </div>
-
             </div>
         </div>
-
     </form>
 
-
-
     <!-- ====================== REVIEWS LIST ====================== -->
-            <hr class="my-4">
-
-            <h4 class="text-center mb-4">User Reviews</h4>
-
-            <div class="container d-flex justify-content-center flex-wrap gap-4">
-
-                <% if (!listing.reviews || listing.reviews.length === 0) { %>
-
-                    <p class="text-muted">No reviews yet. Be the first to leave one!</p>
-
-                <% } else { %>
-
-                    <% listing.reviews.forEach(review => { %>
-
-                        <div class="card shadow-sm p-3 mb-4"
-                            style="width: 22rem; border-radius: 15px; background-color: #f7f7f7; border: none;">
-
-                            <div class="card-body">
-
-                                <p class="text-primary fw-semibold mb-1">
-                                    <i class="bi bi-person-circle"></i>
-                                    <%= review.author ? review.author.username : "Anonymous" %>
-                                </p>
-
-                                <!-- ⭐ Static Rating Output -->
-                                <p class="starability-result mb-3" data-rating="<%= review.rating %>">
-                                    Rated: <%= review.rating %> stars
-                                </p>
-
-
-                                <p class="card-text text-dark" style="font-size: 0.95rem; line-height: 1.5;">
-                                    <%= review.comment.trim() ? review.comment : "No comment provided." %>
-                                </p>
-
-                                <small class="text-muted d-block mt-2">
-                                    Posted on:
-                                    <%= new Date(review.createdAt).toLocaleDateString("en-US", { 
-                                        month: "short",
-                                        day: "2-digit",
-                                        year: "numeric"
-                                    }) %>
-                                </small>
-
-                                <% if (currUser && review.author && review.author._id.toString() === currUser._id.toString()) { %>
-
-                                    <div class="mt-3 d-flex gap-2">
-
-                                        <a href="/listings/<%= listing._id %>/reviews/<%= review._id %>/edit"
-                                        class="btn btn-sm btn-primary">Edit</a>
-
-                                        <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
-                                            method="POST">
-                                            <button class="btn btn-sm btn-danger">Delete</button>
-                                        </form>
-
-                                    </div>
-
-                                <% } %>
-
+    <hr class="my-4">
+    <h4 class="text-center mb-4">User Reviews</h4>
+    <div class="container d-flex justify-content-center flex-wrap gap-4">
+        <% if (!listing.reviews || listing.reviews.length === 0) { %>
+            <p class="text-muted">No reviews yet. Be the first to leave one!</p>
+        <% } else { %>
+            <% listing.reviews.forEach(review => { %>
+                <div class="card shadow-sm p-3 mb-4"
+                    style="width: 22rem; border-radius: 15px; background-color: #f7f7f7; border: none;">
+                    <div class="card-body">
+                        <p class="text-primary fw-semibold mb-1">
+                            <i class="bi bi-person-circle"></i>
+                            <%= review.author ? review.author.username : "Anonymous" %>
+                        </p>
+                        <!-- ⭐ Static Rating Output -->
+                        <p class="starability-result mb-3" data-rating="<%= review.rating %>">
+                            Rated: <%= review.rating %> stars
+                        </p>
+                        <p class="card-text text-dark" style="font-size: 0.95rem; line-height: 1.5;">
+                            <%= review.comment.trim() ? review.comment : "No comment provided." %>
+                        </p>
+                        <small class="text-muted d-block mt-2">
+                            Posted on:
+                            <%= new Date(review.createdAt).toLocaleDateString("en-US", { 
+                                month: "short",
+                                day: "2-digit",
+                                year: "numeric"
+                            }) %>
+                        </small>
+                        <% if (currUser && review.author && review.author._id.toString() === currUser._id.toString()) { %>
+                            <div class="mt-3 d-flex gap-2">
+                                <a href="/listings/<%= listing._id %>/reviews/<%= review._id %>/edit"
+                                class="btn btn-sm btn-primary">Edit</a>
+                                <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+                                    method="POST">
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </form>
                             </div>
-                        </div>
-
-                    <% }) %>
-
-                <% } %>
-
-            </div>
-
+                        <% } %>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
 
     <!-- ====================== CUSTOM STYLES ====================== -->
     <style>
-
     /* OWNER BADGE ON TOP RIGHT */
     .owner-top-badge {
         position: absolute;
@@ -215,10 +240,122 @@
         backdrop-filter: blur(4px);
     }
 
+    /* NEW DETAILS CARD STYLES */
+    .details-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        overflow: hidden;
+        border: 1px solid #e9ecef;
+    }
 
+    .details-header {
+        background: #f8f9fa;
+        padding: 16px 24px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .details-header h5 {
+        margin: 0;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .details-grid {
+        padding: 24px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+        .details-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 576px) {
+        .details-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .detail-item {
+        background: #f8fafc;
+        border-radius: 10px;
+        padding: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        border: 1px solid #e9ecef;
+        transition: all 0.2s ease;
+    }
+
+    .detail-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        border-color: #667eea;
+    }
+
+    .price-card {
+        background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        border-color: #bae6fd;
+    }
+
+    .price-card .detail-icon {
+        background: #0ea5e9;
+        color: white;
+    }
+
+    .detail-item.full-width {
+        grid-column: 1 / -1;
+    }
+
+    .detail-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: #667eea;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .detail-content {
+        flex: 1;
+    }
+
+    .detail-label {
+        display: block;
+        font-size: 12px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+        font-weight: 600;
+    }
+
+    .detail-value {
+        display: block;
+        font-size: 16px;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .detail-description {
+        color: #555;
+        line-height: 1.6;
+        margin: 8px 0 0 0;
+        font-size: 15px;
+    }
+
+    /* BOOKING BUTTON */
     .book {
-    text-align: center; 
-    margin: 30px 0;
+        text-align: center; 
+        margin: 30px 0;
     }
 
     .pulse-btn {
@@ -246,9 +383,104 @@
         box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
         animation: pulse 1.5s infinite;
     }
- @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
-</style>
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .col-6.offset-2 {
+            width: 100% !important;
+            margin-left: 0 !important;
+            padding: 0 15px;
+        }
+    }
+
+
+
+
+/* Card Body Styles */
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+/* Address Box */
+.address-box {
+    display: flex;
+    gap: 15px;
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 15px;
+}
+
+.address-icon {
+    width: 48px;
+    height: 48px;
+    background: #3b82f6;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.address-content {
+    flex: 1;
+}
+
+.address-title {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.address-location, .address-country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4b5563;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.address-location i, .address-country i {
+    color: #6b7280;
+    width: 16px;
+}
+
+/*  Property Name  */
+
+
+.listing-title-main {
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 1.8rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #667eea;
+    display: flex;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.listing-title-main i {
+    color: #667eea;
+    font-size: 1.5rem;
+}
+
+    </style>
