@@ -45,7 +45,7 @@ A full-stack hotel booking application that enables users to browse properties, 
 
 Clone the repository:
 bash
-git clone https://github.com/<your-username>/FindYourStay.git
+git clone https://github.com/Vishwajeet0188/FindYourStay.git
 cd FindYourStay
 npm install 
 
