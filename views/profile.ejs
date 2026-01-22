@@ -23,6 +23,14 @@
             <h3><%= currUser.fullName || currUser.username %></h3>
             <p><%= currUser.email %></p>
         </div>
+
+        <% if (!currUser?.fullName || currUser.fullName.trim() === "") { %>
+            <div class="profile-hint">
+                <strong>Note:</strong> If you can’t see your name here, please go to 
+                <a href="/profile/edit">Profile Settings</a> and update your full name.
+            </div>
+        <% } %>
+
         
         <div class="sidebar-stats">
             <div class="stat-item">
@@ -76,7 +84,7 @@
     <div class="profile-main">
         <!-- Header -->
         <div class="profile-header">
-            <h1>Welcome back, <%= currUser.fullName.split(' ')[0] || 'User' %>!</h1>
+            <h1>Welcome back, <%= currUser?.fullName ? currUser.fullName.split(" ")[0] : 'User' %>!</h1>
             <p>Here's your personal dashboard</p>
         </div>
 
@@ -661,6 +669,29 @@
     opacity: 1;
     transform: translateX(3px);
 }
+
+/* warning message if can't see his/her name there. */
+
+.profile-hint {
+    margin: 15px 25px;
+    padding: 12px 15px;
+    font-size: 0.85rem;
+    color: #555;
+    background: #f8f9ff;
+    border-left: 3px solid #667eea;
+    border-radius: 8px;
+}
+
+.profile-hint a {
+    color: #667eea;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.profile-hint a:hover {
+    text-decoration: underline;
+}
+
 
 
 /* Responsive */
